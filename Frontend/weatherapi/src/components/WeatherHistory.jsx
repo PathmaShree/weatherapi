@@ -110,7 +110,7 @@ function WeatherHistory() {
       {history.length === 0 ? (
         <p>No history found</p>
       ) : (
-        // ✅ Scrollable container added here
+        
         <div className="weather-history-container">
           <div className="history-list">
             {history.map((w) => (
