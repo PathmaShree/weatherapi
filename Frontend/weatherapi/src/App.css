@@ -1,0 +1,293 @@
+/* ---------- Global Layout ---------- */
+body,
+html,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+/* ---------- App Container ---------- */
+.app-container {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ---------- Title ---------- */
+.main-title {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
+}
+
+/* ---------- Input & Buttons Section ---------- */
+.weather-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ✅ Buttons side by side */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  background: #fff;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+button {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056d2, #0088cc);
+  transform: translateY(-2px);
+}
+
+/* ---------- History Button ---------- */
+.history-btn {
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.history-btn:hover {
+  background: linear-gradient(45deg, #2563eb, #0891b2);
+  transform: scale(1.05);
+}
+
+/* ---------- Result Box ---------- */
+.weather-result {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.weather-result h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* ---------- Error & Loading ---------- */
+.error {
+  color: #ff4b4b;
+  font-weight: 500;
+}
+
+.loading {
+  color: #555;
+  font-style: italic;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* ---------- Weather History ---------- */
+.weather-history {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 16px;
+  color: #1f1e1e;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: visible;
+  /* ✅ Changed from hidden */
+}
+
+.weather-history h2 {
+  margin-bottom: 15px;
+  color: #080808;
+}
+
+/* ---------- Scrollable Container ---------- */
+.weather-history-container {
+  max-height: 60vh;
+  /* ✅ Controls visible height */
+  overflow-y: auto;
+  /* ✅ Enables vertical scroll */
+  width: 100%;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #787575 #ffffff20;
+}
+
+/* Optional Chrome scrollbar style */
+.weather-history-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.weather-history-container::-webkit-scrollbar-thumb {
+  background-color: #18191a;
+  border-radius: 4px;
+}
+
+.weather-history-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+/* ---------- Scrollable Container ---------- */
+.weather-history-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  width: 100%;
+  padding-right: 5px;
+}
+
+/* ---------- Individual Record Cards ---------- */
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.01);
+}
+
+.item-info {
+  text-align: left;
+  color: #0d0d0d;
+  font-size: 0.95rem;
+}
+
+.item-info span {
+  margin-right: 6px;
+}
+
+/* ---------- Record Buttons ---------- */
+.item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Edit Input Fields ---------- */
+.edit-fields input {
+  margin-right: 6px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.85rem;
+}
