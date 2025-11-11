@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherHistory from "./WeatherHistory"; // ✅ import your history component
+import WeatherHistory from "./WeatherHistory"; 
 
 function WeatherSearch() {
   const [city, setCity] = useState("");
@@ -36,12 +36,12 @@ function WeatherSearch() {
     }
   };
 
-  // ✅ When showHistory is true → show WeatherHistory component
+  
   if (showHistory) {
     return (
       <div className="app-container">
         <button onClick={() => setShowHistory(false)}>🔙 Back to Search</button>
-        <WeatherHistory /> {/* ✅ Your existing WeatherHistory component */}
+        <WeatherHistory /> 
       </div>
     );
   }
@@ -58,7 +58,7 @@ function WeatherSearch() {
           onChange={(e) => setCity(e.target.value)}
         />
 
-        {/* ✅ Added your button group exactly here */}
+        
         <div className="button-group">
           <button onClick={fetchWeather}>Get Weather</button>
           <button className="history-btn" onClick={() => setShowHistory(true)}>
